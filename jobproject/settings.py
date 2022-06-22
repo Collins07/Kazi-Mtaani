@@ -40,9 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-    #own
-
     'django_bootstrap5',
     'crispy_forms',
     'rest_framework',
@@ -85,9 +82,9 @@ WSGI_APPLICATION = 'jobproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'jobo',
-        'USER': 'acer',
-        'PASSWORD':'password',
+        'NAME': 'kazi',
+        'USER': 'moringa',
+        'PASSWORD': 'Access',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -137,7 +134,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
-LOGIN_REDIRECT_URL = 'profile'
+LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
 
 # Default primary key field type

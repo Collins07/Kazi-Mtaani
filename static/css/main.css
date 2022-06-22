@@ -292,6 +292,72 @@ a.article-title:hover {
   box-shadow: 0 8px 16px 0 rgba(77, 76, 76, 0.2);
 }
 
+
+
+
+#hero{
+  height: 520px;
+  background-image: linear-gradient(0deg, rgba(1, 22, 30, 0.4), rgba(1, 22, 30, 0.4)), linear-gradient(0deg, rgba(1, 22, 30, 0.2), rgba(1, 22, 30, 0.2)), linear-gradient(0deg, rgba(1, 22, 30, 0.2), rgba(1, 22, 30, 0.2)), linear-gradient(0deg, rgba(1, 22, 30, 0.2), rgba(1, 22, 30, 0.2)), linear-gradient(0deg, rgba(1, 22, 30, 0.2), rgba(1, 22, 30, 0.2)), url("./job2.jpg");
+  
+}
+nav{
+  height: 80px;
+  background:  linear-gradient(90.49deg, #124559 54.94%, rgba(18, 55, 89, 0) 99.91%);;
+}
+ul{
+  margin-left: 20%;
+  color: white;
+  display: inline;
+  
+}
+li{
+  list-style-type: none;
+  margin-left: 20%;
+  color: white;
+}
+.nav-link{
+  color: white;
+}
+h2{
+  color: white;
+  font-family: 'Italianno';
+
+}
+#link{
+  color: white;
+}
+#link1{
+  color: black;
+  background-color: grey;
+  width: 100px;
+  text-align: center;
+  border-radius: 20px;
+}
+#textpic{
+  font-size: 45px;
+  color: #0E77A0;
+  text-align: center;
+  line-height: 1.3;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+}
+.span{
+  color: white;
+}
+#intro{
+  margin-top: 26%;
+}
+#footer{
+  height: 80px;
+  color: black;
+  text-align: center;
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+background:  linear-gradient(90.49deg, #124559 54.94%, rgba(18, 55, 89, 0) 99.91%);
+font-size: 20px;
+}
 #jobdescription{
   font-weight: 200;
   font-size: small;
@@ -299,3 +365,4 @@ a.article-title:hover {
 a{
   text-decoration: none;
 }
+
