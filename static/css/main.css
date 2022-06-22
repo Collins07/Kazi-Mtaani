@@ -291,3 +291,46 @@ a.article-title:hover {
 .article-card:hover {
   box-shadow: 0 8px 16px 0 rgba(77, 76, 76, 0.2);
 }
+
+
+
+
+#hero{
+  height: 500px;
+  border: 2px solid blue;
+  background-image: linear-gradient(rgba(6, 9, 53, 0.5), rgba(0, 0, 0, 0.5)), url("./job2.jpg");
+  
+}
+nav{
+  height: 80px;
+  background:  linear-gradient(90.49deg, #124559 54.94%, rgba(18, 55, 89, 0) 99.91%);;
+}
+#ul1{
+  margin-left: 20%;
+  color: white;
+  display: inline;
+  
+}
+li{
+  list-style-type: none;
+  margin-left: 20%;
+  color: white;
+}
+.nav-link{
+  color: white;
+}
+h2{
+  color: white;
+  font-family: 'Italianno';
+
+}
+#link{
+  color: white;
+}
+#link1{
+  color: black;
+  background-color: grey;
+  width: 100px;
+  text-align: center;
+  border-radius: 20px;
+}
