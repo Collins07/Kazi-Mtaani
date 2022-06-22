@@ -1,0 +1,39 @@
+
+
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-2"></div>
+        
+        
+        
+        <div class="col-md-8">
+            <div class="container card mt-5">
+                <form class="container p-3 "  method="POST" enctype="multipart/form-data">
+                        
+                        
+                    {% csrf_token %}
+
+
+                   {{ u_form|crispy }}
+                   {{ p_form|crispy }}
+                    <!-- 2 column grid layout for inline styling -->
+                    
+                  
+                    <!-- Submit button -->
+                    <button type="submit" class="btn  btn-lg mt-5  mb-4 btn-block fw-bold" style="background-color: #48c5b5; color: white;">Update Profile</button>
+
+                  
+                  
+                   
+                  </form>
+              </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>
+{% endblock %}

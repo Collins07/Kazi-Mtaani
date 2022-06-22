@@ -3,7 +3,7 @@ import datetime as dt
 
 # Create your models here.
 
-JOB_TYPE = (('1','Full Time'),('2','Part Time'),('3','Internship'))
+JOB_TYPE = ('Full Time','Part Time','Internship')
 
 class Location(models.Model):
     location = models.CharField(max_length =30)
