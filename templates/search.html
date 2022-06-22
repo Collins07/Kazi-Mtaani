@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% block content %}
 <div class="container">
 
@@ -16,9 +17,9 @@
 
 {% if jobs %}
     {% for jobs in jobs %}
-    <div class="col-sm-4">        
+    <div class="col-sm-2">        
     </div>
-    <div class="col-md-4">
+    <div class="col-md-8">
         <h3><u>{{jobs.title}}</u></h3>
         <p>Description: {{jobs.description}}</p>
         <p>Category: {{jobs.category.name}}</p>
@@ -27,7 +28,7 @@
         
 
     </div>
-    <div class="col-md-4">
+    <div class="col-md-2">
         </div>
     {% endfor %}
 {% endif %}

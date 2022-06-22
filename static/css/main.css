@@ -59,7 +59,7 @@
 
 body {
   font-family: 'Nuosu SIL', serif !important;
-  font-size: 2em;
+  font-size: large;
 }
 
 
@@ -358,3 +358,11 @@ font-weight: 700;
 background:  linear-gradient(90.49deg, #124559 54.94%, rgba(18, 55, 89, 0) 99.91%);
 font-size: 20px;
 }
+#jobdescription{
+  font-weight: 200;
+  font-size: small;
+}
+a{
+  text-decoration: none;
+}
+
