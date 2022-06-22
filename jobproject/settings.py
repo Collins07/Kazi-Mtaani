@@ -40,15 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     
     #own
-    'kazimtaani',
-=======
+
     'django_bootstrap5',
     'crispy_forms',
     'rest_framework',
->>>>>>> fc10029b5c6c537e9bf29fe15420a67732fba0a6
 ]
 
 MIDDLEWARE = [
@@ -88,15 +85,9 @@ WSGI_APPLICATION = 'jobproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-<<<<<<< HEAD
         'NAME': 'jobo',
         'USER': 'acer',
         'PASSWORD':'password',
-=======
-        'NAME': 'kazi_mtaani',
-        'USER': 'flo',
-        'PASSWORD': 'flo',
->>>>>>> fc10029b5c6c537e9bf29fe15420a67732fba0a6
         'HOST': 'localhost',
         'PORT': '',
     }

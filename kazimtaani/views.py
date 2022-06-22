@@ -18,7 +18,7 @@ def index(request):
 
 def job(request,job_id):
     try:
-        job = job.objects.get(id= job_id)
+        job = Job.objects.get(id= job_id)
     except:
         raise Http404()
     return render(request,'job.html',{'job':job})
@@ -27,7 +27,7 @@ def search_results(request):
 
     if 'job' in request.GET and request.GET["job"]:
         search_term = request.GET.get("job")
-        searched_jobs = job.search_by_category(search_term)
+        searched_jobs = Job.search_by_category(search_term)
         message = f"{search_term}"
 
         return render(request, 'search.html',{"message":message,"jobs": searched_jobs})

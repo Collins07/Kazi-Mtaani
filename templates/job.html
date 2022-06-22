@@ -1,18 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
 {% block title %}
     Job details
 {% endblock %}
 
 {% block content %}
 
+{% load django_bootstrap5 %}
     <section class="bg-light-gray">
         <div class="container">
-            <h1 class="heading">{{ job.title }}<br>
-            </h1>
+            <h2 class="heading">{{ job.title }}<br>
+            </h2>
             <div class="job-detail-description"><i class="fa fa-map-marker job__location"> </i>
                 {{ job.location }} | Posted {{ job.pub_date|timesince }} |
-                {% if job.type == '1' %}
+                {% if job.jobtype == '1' %}
                     <span class="badge featured-badge badge-success">Full time</span>
-                {% elif job.type == '2' %}
+                {% elif job.jobtype == '2' %}
                     <span class="badge featured-badge badge-primary">Part time</span>
                 {% else %}
                     <span style="color: #ffffff;" class="badge featured-badge badge-warning">Internship</span>
