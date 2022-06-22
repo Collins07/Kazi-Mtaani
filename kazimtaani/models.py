@@ -66,6 +66,7 @@ class Job(models.Model):
     jobtype = models.CharField(choices=JOB_TYPE,max_length=15)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     pub_date = models.DateTimeField(auto_now_add=True, null=True) 
+    siteurl = models.URLField(max_length=200, null=True, blank=True) 
 
     def save_job(self):
         self.save()

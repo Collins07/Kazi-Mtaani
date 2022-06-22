@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse,Http404
 import datetime as dt
-from .models import Location, Poster,Category, Job
+from .models import Location,Category, Job
+from django.contrib.auth.decorators import login_required
+from .forms import PostForm
+from users.models import Profile
 
 # Create your views here.
 def index(request):
@@ -35,3 +38,19 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
+    
+@login_required   
+def NewPost(request):
+    user = Profile.objects.get(user=request.user)
+    if request.method == "POST":
+        form=PostForm(request.POST, request.FILES)
+        if form.is_valid():
+            data = form.save(commit=False)
+            data.profile = user
+            data.user=request.user.profile
+            data.save()
+            return redirect('index')
+        else:
+            form=PostForm()
+
+    return render(request, 'post.html',{'form':PostForm})

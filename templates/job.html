@@ -9,31 +9,34 @@
 {% load django_bootstrap5 %}
     <section class="bg-light-gray">
         <div class="container">
-            <h2 class="heading">{{ job.title }}<br>
+            <h2 class="heading text-center">{{ job.title }}<br>
             </h2>
-            <div class="job-detail-description"><i class="fa fa-map-marker job__location"> </i>
+            <div class="job-detail-description text-center">
+                <i class="fa fa-map-marker job__location"> </i>
                 {{ job.location }} | Posted {{ job.pub_date|timesince }} |
                 {% if job.jobtype == '1' %}
-                    <span class="badge featured-badge badge-success">Full time</span>
+                    <span >Full time</span>
                 {% elif job.jobtype == '2' %}
-                    <span class="badge featured-badge badge-primary">Part time</span>
+                    <span>Part time</span>
                 {% else %}
-                    <span style="color: #ffffff;" class="badge featured-badge badge-warning">Internship</span>
+                    <span style="color: #17d8d8;">Internship</span>
                 {% endif %}
+                <div><a href="{{job.siteurl}}" class="btn btn-outline-dark btn-sm m-1 loc-list">Apply</a></div>
             </div>
         </div>
     </section>
     <section>
         <div class="container">
             <div class="row">
+                <div class="col-lg-2"></div>
                 <div class="col-lg-8">
                     <h3>Category: {{ job.category }}</h3>
                     <blockquote class="blockquote">
                         <p>{{ job.description }}</p>
                     </blockquote>
-                    <h4><a href="#">Apply</a></h4>
+                    
                 </div>
-                <div class="col-lg-1"></div>
+                <div class="col-lg-2"></div>
             </div>
         </div>
     </section>
