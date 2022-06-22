@@ -14,6 +14,23 @@
     {% load django_bootstrap5 %}
 </head>
 <body>
+    
+    <div>
+        <div class="row">
+            <div id="hero" class="col-12">
+                <div id="intro" class="container-fluid">
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div id="textpic" class="col-4">Searching for a job?<br><span class="span">Kazi Mtaani</span><br>  got you.</div>
+                        <div class="col-4"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     {% block title %}
     <h4 class="text-center">All jobs</h4>
     {% endblock %}
@@ -72,7 +89,7 @@
                                 {{ job.location }}
                             </div>
                             <div class="col-6 col-md-3 col-lg-3 ml-auto">
-                                <p>Job Type:  {{ job.jobtype}}</p>
+                                <p>Job Type:  {{ job.jobtype[1]}}</p>
                             </div>
                             <div class="col-6 col-md-3 col-lg-3 ml-auto">
                                 <p>Posted {{ job.pub_date|timesince }} ago</p>
@@ -85,6 +102,10 @@
         </div>
         {% endfor %}
     </div>
+
+    <div id="footer" class="container-fluid">
+        <footer>Kazi Mtaani © 2022</footer>
+      </div>
     {% endblock %}
 </body>
 </html>
