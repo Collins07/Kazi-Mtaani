@@ -7,8 +7,8 @@ from .models import Location,Category, Job
 from django.contrib.auth.decorators import login_required
 from .forms import PostForm,LocationForm
 from users.models import Profile
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import CreateView, UpdateView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.views.generic import CreateView, UpdateView, DeleteView
 
 
 # Create your views here.
@@ -79,6 +79,32 @@ class JobCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
+class JobUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Job
+    fields = ['title', 'description', 'category', 'location', 'siteurl', 'jobtype']
+
+    def form_valid(self, form):
+        form.instance.poster = self.request.user
+        return super().form_valid(form)
+
+    def test_func(self):
+        job = self.get_object()
+        if self.request.user == job.poster:
+            return True
+        return False
+
+
+class JobDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Job
+    success_url = '/'
+
+    def test_func(self):
+        job = self.get_object()
+        if self.request.user == job.poster:
+            return True
+        return False
+
+
 
 class LocationCreateView(LoginRequiredMixin, CreateView):
     model = Location
@@ -86,3 +112,20 @@ class LocationCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         return super().form_valid(form)
+
+
+class LocationUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = Location
+    fields = ['location']
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+
+
+class CategoryCreateView(LoginRequiredMixin, CreateView):
+    model = Category
+    fields = ['name']
+
+    def form_valid(self, form):
+        return super().form_valid(form)
+

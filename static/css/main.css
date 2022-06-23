@@ -60,6 +60,8 @@
 body {
   font-family: 'Nuosu SIL', serif !important;
   font-size: large;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 
@@ -93,6 +95,7 @@ body {
   position: relative;
   left: 0px;
   background: url(../assets/site-images/guard.webp);
+  background-image: url(/media/job2.jpg);
   border-top: 1px solid #181B57;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   background-repeat: no-repeat;
@@ -151,10 +154,12 @@ body {
 }
 
 .darker-div {
-  background-color: #010322;
-  margin: 2em;
+  background: linear-gradient(101.81deg, #194557 26.25%, #0b4c66 41.79%, rgba(18, 69, 89, 0) 98.97%);
+  margin-left: 10%;
+  margin-top: 3%;
   color:#0624C8;
-  padding: 1em;
+  padding: 3px;
+  width: 70%;
 }
 
 .form-div {
@@ -297,12 +302,12 @@ a.article-title:hover {
 
 #hero{
   height: 520px;
-  background-image: linear-gradient(0deg, rgba(1, 22, 30, 0.4), rgba(1, 22, 30, 0.4)), linear-gradient(0deg, rgba(1, 22, 30, 0.2), rgba(1, 22, 30, 0.2)), linear-gradient(0deg, rgba(1, 22, 30, 0.2), rgba(1, 22, 30, 0.2)), linear-gradient(0deg, rgba(1, 22, 30, 0.2), rgba(1, 22, 30, 0.2)), linear-gradient(0deg, rgba(1, 22, 30, 0.2), rgba(1, 22, 30, 0.2)), url("./job2.jpg");
+  background-image: linear-gradient(0deg, rgba(1, 22, 30, 0.4), rgba(1, 22, 30, 0.4)), linear-gradient(0deg, rgba(1, 22, 30, 0.2), rgba(1, 22, 30, 0.2)), linear-gradient(0deg, rgba(1, 22, 30, 0.2), rgba(1, 22, 30, 0.2)), linear-gradient(0deg, rgba(1, 22, 30, 0.2), rgba(1, 22, 30, 0.2)), linear-gradient(0deg, rgba(1, 22, 30, 0.2), rgba(1, 22, 30, 0.2)), url("/media/job2.jpg");
   
 }
 nav{
   height: 80px;
-  background:  linear-gradient(90.49deg, #124559 54.94%, rgba(18, 55, 89, 0) 99.91%);;
+  background:  linear-gradient(90.49deg, #124559 54.94%, rgba(18, 55, 89, 0) 99.91%);
 }
 ul{
   margin-left: 20%;
@@ -318,13 +323,18 @@ li{
 .nav-link{
   color: white;
 }
-h2{
+#h2{
   color: white;
-  font-family: 'Italianno';
+  font-size: 40px;
 
 }
 #link{
+  color: black;
+}
+#link2{
   color: white;
+  display: flex;
+  width: 200px;
 }
 #link1{
   color: black;
@@ -349,7 +359,7 @@ h2{
   margin-top: 26%;
 }
 #footer{
-  height: 80px;
+  height: 60px;
   color: black;
   text-align: center;
   font-family: 'Inter';
@@ -364,5 +374,29 @@ font-size: 20px;
 }
 a{
   text-decoration: none;
-}
 
+}
+header{
+  background: linear-gradient(90.49deg, #124559 54.94%, rgba(18, 55, 89, 0) 99.91%);
+  width: 100%;
+}
+#link3{
+  margin-left: 5%;
+  width: 60%;
+}
+#link4{
+  margin-left: 10%;
+}
+#link5{
+  margin-left: 10%;
+  background-color: grey;
+  color: black;
+  border-radius: 15px;
+}
+.span2{
+  color: #010322;
+}
+#link6{
+  background-color:  #194557;
+  color: white;
+}

@@ -4,30 +4,38 @@
 {% block content %}
 {{block.super}}
 
-<body class="lo-body">
+<body>
     <div class="container">
-        <div class="darker-div">
+        <div>
             <div class="row py-lg-5">
                 <div class="col-3 d-none d-lg-block">
                     <img src="../../../static/assets/site-images/login.svg" alt="logout"
                         style="height: 300px; width: 300px">
                 </div>
-                <div class="col-2"></div>
-                <div class="form-div col-lg-6 col-md-8 mx-auto">
-                    <form method="POST" class="pt-3"> 
-                        {% csrf_token %}
-                        <fieldset class="form-group">
-                            <legend class="border-bottom mb-4 pt-3">Register</legend>
-                            {{ form|crispy}}
-                            <button class="btn btn-outline-info mb-3 mt-3" type="submit">Register</button>
-                        </fieldset>
-                    </form>
-                    <div class="border-top pt-3 mb-4">
-                       <small class="text-muted">
-                        Already Have an Account? <a clas="ml-2" href="{% url 'login' %}"> Sign In</a>
-                       </small>
-                    </div>
+                <div class="col-md-4">
                 </div>
+            <div class="col-md-4">
+                {% if form.errors %}
+                <p class="text-danger"> Some Information Might be Incorrect </p>
+                {% endif %}
+                <div class="card mt-5">
+                <div class="card-header">
+                    <h3>Register</h3>
+                </div>
+                <div class="card-body">
+                    <form  action="" method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="form-group mt-3">
+                        <input type="submit" class="btn btn-dark" value="Create Account">
+                    </div>
+                    <input type="hidden" name="next" value="{{next}}">
+                    </form>
+                    <p class="mt-5">Already Have an Account, <a href="{% url 'login'%}" class="text-primary">Login</a></p>
+                </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
             </div>
         </div>
     </div>

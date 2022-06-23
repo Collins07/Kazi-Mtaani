@@ -11,17 +11,20 @@
         <div class="container">
             <h2 class="heading text-center">{{ job.title }}<br>
             </h2>
+            <p class="text-center">Posted by: {{job.poster}}</p>
             <div class="job-detail-description text-center">
                 <i class="fa fa-map-marker job__location"> </i>
                 {{ job.location }} | Posted {{ job.pub_date|timesince }} |
-                {% if job.jobtype == '1' %}
-                    <span >Full time</span>
-                {% elif job.jobtype == '2' %}
-                    <span>Part time</span>
-                {% else %}
-                    <span style="color: #17d8d8;">Internship</span>
-                {% endif %}
-                <div><a href="{{job.siteurl}}" class="btn btn-outline-dark btn-sm m-1 loc-list">Apply</a></div>
+                
+                <span style="color: #17d8d8;">{{job.jobtype}}</span>
+                
+                <div><a href="{{job.siteurl}}" class="btn btn-outline-dark btn-sm m-1 loc-list">Apply</a>
+                    {% if job.poster == user %}
+                    <a href="{% url 'job-update' job.id %}" class="btn btn-outline-success btn-sm m-1 loc-list">Update</a>
+                    
+                    <a href="{% url 'job-delete' job.id %}" class="btn btn-outline-danger btn-sm m-1 loc-list">Delete</a>
+                    {% endif %}
+                </div>
             </div>
         </div>
     </section>

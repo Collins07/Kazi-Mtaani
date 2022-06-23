@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-JOB_TYPE = (('1','Full Time'),('2','Part Time'),('3','Internship'))
+JOB_TYPE = (('full time','Full Time'),('part time','Part Time'),('internship','Internship'))
 
 class Location(models.Model):
 
@@ -33,6 +33,10 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name
+
+    
+    def get_absolute_url(self):
+        return reverse('job-create')
     
     def save_category(self):
         self.save()
@@ -53,7 +57,7 @@ class Job(models.Model):
     poster = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
     location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
-    jobtype = models.CharField(choices=JOB_TYPE[1:],max_length=15)
+    jobtype = models.CharField(choices=JOB_TYPE,max_length=15)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     pub_date = models.DateTimeField(auto_now_add=True, null=True) 
 

@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'jobproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'jobo',
+        'NAME': 'kazi',
         'USER': 'acer',
         'PASSWORD': 'password',
         'HOST': 'localhost',
