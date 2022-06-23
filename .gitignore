@@ -1,6 +1,4 @@
 env/
 __pycache__/
 virtual/
-venv/
-requirements.txt
 .env/
