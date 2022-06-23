@@ -25,8 +25,10 @@
             <h3 style="padding: 20px; font-size: 20px;color: rgb(76, 164, 223)">Post A Project</h3>
         </div>
         
-            {{pf_form|crispy}}
-            {{l_form|crispy}}
+            {{form|crispy}}
+        <div>Can't see your location? Add a new 
+            <a href="{% url 'location-create' %} ">location</a>
+        </div>
         <button class="btn btn-dark mb-5 mt-3" type="submit">Post</button>
         
         </form>

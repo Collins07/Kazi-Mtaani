@@ -1,10 +1,15 @@
-from django.shortcuts import render
+from multiprocessing import context
+from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
 import datetime as dt
+from django.contrib.auth.models import User
 from .models import Location,Category, Job
 from django.contrib.auth.decorators import login_required
-from .forms import PostForm
+from .forms import PostForm,LocationForm
 from users.models import Profile
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic import CreateView, UpdateView
+
 
 # Create your views here.
 def index(request):
@@ -44,14 +49,40 @@ def search_results(request):
 def NewPost(request):
     user = Profile.objects.get(user=request.user)
     if request.method == "POST":
-        form=PostForm(request.POST, request.FILES)
-        if form.is_valid():
-            data = form.save(commit=False)
-            data.profile = user
-            data.user=request.user.profile
-            data.save()
+        pf_form=PostForm(request.POST, request.FILES, user=user.id)
+        l_form=LocationForm(request.POST)
+        if pf_form.is_valid() and l_form.is_valid():
+            pf_form.save()
+            l_form.save()
+            
             return redirect('index')
-        else:
-            form=PostForm()
+    else:
+        pf_form=PostForm(user=user.id)
+        l_form=LocationForm()
 
-    return render(request, 'post.html',{'form':PostForm})
+    context = {
+                'pf_form':pf_form,
+                'l_form':l_form
+            }
+
+    return render(request, 'post.html',context)
+
+
+
+
+class JobCreateView(LoginRequiredMixin, CreateView):
+    model = Job
+    fields = ['title', 'description', 'category', 'location', 'siteurl', 'jobtype']
+
+    def form_valid(self, form):
+        form.instance.poster = self.request.user
+        return super().form_valid(form)
+
+
+
+class LocationCreateView(LoginRequiredMixin, CreateView):
+    model = Location
+    fields = ['location']
+
+    def form_valid(self, form):
+        return super().form_valid(form)

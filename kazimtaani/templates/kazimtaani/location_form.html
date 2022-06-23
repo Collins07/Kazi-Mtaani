@@ -22,12 +22,12 @@
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
         <div class="logo">
-            <h3 style="padding: 20px; font-size: 20px;color: rgb(76, 164, 223)">Post A Project</h3>
+            <h3 style="padding: 20px; font-size: 20px;color: rgb(76, 164, 223)">Add a Location</h3>
         </div>
         
-            {{pf_form|crispy}}
-            {{l_form|crispy}}
-        <button class="btn btn-dark mb-5 mt-3" type="submit">Post</button>
+            {{form|crispy}}
+            
+        <button class="btn btn-dark mb-5 mt-3" type="submit">Add</button>
         
         </form>
         
