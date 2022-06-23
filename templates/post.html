@@ -16,16 +16,14 @@
 <title>Post</title>
 </head>
 
-<body>
+<body id="mainjob" >
 
-    <div class="container m-4">
-    <div class="phone-app-ddemo">
+    <div  class="container">
+    <div id="darker-div" class="phone-app-ddemo">
     <div class="form-data card" style="margin-left: 30px; align-items: center;border:1px solid #ccc; border-radius: 5px;">
         <form action="" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
-        <div class="logo">
-            <h3 style="padding: 20px; font-size: 20px;color: rgb(76, 164, 223)">Post A Job</h3>
-        </div>
+    
         
             {{pf_form|crispy}}
             {{l_form|crispy}}

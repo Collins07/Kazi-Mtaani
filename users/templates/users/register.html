@@ -3,22 +3,35 @@
 
 {% block content %}
 {{block.super}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
 
-<body>
+
+</head>
+
+
+
+<body style="font-family: Sofia, sans-serif;">
     <div class="container">
         <div>
             <div class="row py-lg-5">
                 <div class="col-3 d-none d-lg-block">
-                    <img src="../../../static/assets/site-images/login.svg" alt="logout"
-                        style="height: 300px; width: 300px">
+                
                 </div>
-                <div class="col-md-4">
-                </div>
-            <div class="col-md-4">
+                
+            <div class="col-md-6">
                 {% if form.errors %}
                 <p class="text-danger"> Some Information Might be Incorrect </p>
                 {% endif %}
-                <div class="card mt-5">
+                <div class="card mt-2" style="box-shadow: 15px 25px 10px rgba(6, 13, 27, 0.5); border-radius: 50px 20px;">
                 <div class="card-header">
                     <h3>Register</h3>
                 </div>
@@ -34,6 +47,8 @@
                     <p class="mt-5">Already Have an Account, <a href="{% url 'login'%}" class="text-primary">Login</a></p>
                 </div>
                 </div>
+            </div>
+            <div class="col-md-2">
             </div>
             <div class="col-md-4"></div>
             </div>
