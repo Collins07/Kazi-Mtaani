@@ -18,7 +18,7 @@
                 
                 <span style="color: #17d8d8;">{{job.jobtype}}</span>
                 
-                <div><a href="{{job.siteurl}}" class="btn btn-outline-dark btn-sm m-1 loc-list">Apply</a>
+                <div><a href="{{job.siteurl}}"  target="_blank" class="btn btn-outline-dark btn-sm m-1 loc-list">Apply</a>
                     {% if job.poster == user %}
                     <a href="{% url 'job-update' job.id %}" class="btn btn-outline-success btn-sm m-1 loc-list">Update</a>
                     
