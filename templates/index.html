@@ -33,10 +33,10 @@
                         <a href="{% url 'index' %} ">All</a> 
                     </li>
 
-                    {% for location in locations%}
+                    {% for location in locations %}
                     <li class="list-group-item">
-                        <a href="{% url 'index' %}?location={{ location.name}}"> 
-                            {{location.name}}
+                        <a href="{% url 'index' %}?location={{ location.location}}"> 
+                            {{location.location}}
                         </a> 
                     </li>
                     {% endfor%}
@@ -72,7 +72,13 @@
                                 {{ job.location }}
                             </div>
                             <div class="col-6 col-md-3 col-lg-3 ml-auto">
-                                <p>Job Type:  {{ job.jobtype}}</p>
+                                <p>Job Type:{% if job.jobtype == '1' %}
+                                    <span style="color: #17d8d8;">Full time</span>
+                                {% elif job.jobtype == '2' %}
+                                    <span style="color: #17d8d8;">Part time</span>
+                                {% else %}
+                                    <span style="color: #17d8d8;">Internship</span>
+                                {% endif %}</p>
                             </div>
                             <div class="col-6 col-md-3 col-lg-3 ml-auto">
                                 <p>Posted {{ job.pub_date|timesince }} ago</p>
