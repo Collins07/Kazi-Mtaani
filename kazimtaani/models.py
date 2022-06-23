@@ -53,7 +53,7 @@ class Job(models.Model):
     poster = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
     location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
-    jobtype = models.CharField(choices=JOB_TYPE,max_length=15)
+    jobtype = models.CharField(choices=JOB_TYPE[1:],max_length=15)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     pub_date = models.DateTimeField(auto_now_add=True, null=True) 
 

@@ -16,13 +16,14 @@ def index(request):
     jobs = Job.objects.all()
     categories = Category.objects.all()
     location = request.GET.get('location')
+    locations = Location.objects.all()
     if location ==None:
         jobs = Job.objects.all()
     else:
         jobs = Job.objects.filter(location__location=location)
-    locations = Location.objects.all()
     context = {'jobs':jobs, 'categories':categories, 'locations':locations}
     return render(request,'index.html', context)
+
 
 def job(request,job_id):
     try:

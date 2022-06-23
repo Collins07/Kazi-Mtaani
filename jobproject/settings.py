@@ -82,9 +82,9 @@ WSGI_APPLICATION = 'jobproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'kazi',
-        'USER': 'moringa',
-        'PASSWORD': 'Access',
+        'NAME': 'jobo',
+        'USER': 'acer',
+        'PASSWORD': 'password',
         'HOST': 'localhost',
         'PORT': '',
     }
@@ -136,8 +136,6 @@ MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'index'
 LOGIN_URL = 'login'
-
-LOGOUT_REDIRECT_URL = 'login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
