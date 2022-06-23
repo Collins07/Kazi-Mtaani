@@ -7,17 +7,19 @@
     <div class="container">
         <div>
             <div class="row py-lg-5">
-                <div class="col-3 d-none d-lg-block">
-                    <img src="../../../static/assets/site-images/logout.svg" alt="logout"
-                        style="height: 300px; width: 300px">
+                <div class="col-2 d-none d-lg-block">
+                   
                 </div>
-                <div class="col-2"></div>
-                <div class="col-lg-6 col-md-8 mx-auto">
+              
+                <div class="col-lg-7 col-md-8 mx-auto">
+                    <div class="card p-5" style="border-radius:15px; box-shadow: 10px 10px 5px rgba(3,3,3,0.5); ">
                     <h2>You have been logged out!</h2>
                     <div>
                         <a class="ml-2 btn btn-outline-info" href="{% url 'login' %}"> Log In Again</a>
                     </div>
                 </div>
+                </div>
+                <div class="col-2"></div>  <div class="col-2"></div>
             </div>
         </div>
     </div>

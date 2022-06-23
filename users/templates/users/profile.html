@@ -5,18 +5,26 @@
 
 <body>
   <div class="container">
-      <div class="darker-div">
+      <div id="darker-div">
         <div class="content-section">
           <div class="media">
             <img class="rounded-circle account-img center-items" src="{{ user.profile.image.url }}">
             <div class="media-body">
-              <p class="text-center text-mutedi"><span class="span2">Name:</span> {{ user.username }}</p>
-              <p class="text-center text-mutedi"><span class="span2">Email:</span> {{ user.email }}</p>
-              <p class="text-center text-mutedi"><span class="span2">Age:</span> {{ user.profile.age }}</p>
-              <p class="text-center text-mutedi"><span class="span2">Contact:</span> {{ user.profile.phone }}</p>
-              <p class="text-center text-mutedi"><span class="span2">Residence:</span> {{ user.profile.residence }}</p>
-              <p class="text-center text-mutedi"><span class="span2">Skills:</span> {{ user.profile.skills }}</p>
-              <p class="text-center text-mutedi"><span class="span2">Bio:</span> {{ user.profile.bio }}</p>
+              <div class="row">
+              <div class="col-6">
+                <p class=" text-mutedi"><span class="span2">Name:</span> {{ user.username }}</p>
+                <p class=" text-mutedi"><span class="span2">Email:</span> {{ user.email }}</p>
+                <p class=" text-mutedi"><span class="span2">Age:</span> {{ user.profile.age }}</p>
+                <p class=" text-mutedi"><span class="span2">Contact:</span> {{ user.profile.phone }}</p>
+              </div>
+              <div class="col-6">
+                <p class=" text-mutedi"><span class="span2">Residence:</span> {{ user.profile.residence }}</p>
+               <p class=" text-mutedi"><span class="span2">Skills:</span> {{ user.profile.skills }}</p>
+                <p class=" text-mutedi"><span class="span2">Bio:</span> {{ user.profile.bio }}</p>
+              </div>
+              </div>
+              
+              
             </div>
             <a id="link6" href="{% url 'update'  %}" class="btn  me-2">
               Update

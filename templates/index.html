@@ -13,7 +13,7 @@
 <title>Kazi Mtaani</title>
 {% load django_bootstrap5 %}
 </head>
-<body>
+<body id="mainjob">
 
 <div>
     <div class="row">
@@ -32,26 +32,36 @@
 
 
 {% block title %}
-<h4 class="text-center">All jobs</h4>
+<h2 id class="text-center">Available Jobs</h2>
 {% endblock %}
 
-<div class="container">
+<div  class="container">
 
     <h4 class="heading">Find a <span class="accent">job </span> you will <span class="accent">love</span></h4>
+    <div id="searchcategory" class="input-group">
+        <form role="search" action="{% url 'search_results' %}">
+
+            <div class="form-group mb-3">
+                <input type="text" class="form-control" placeholder="Find by category" name="job">
+                <button class="btn btn-dark" type="submit" >Search</button>
+              </div>
+
+            </form>
+        </div>
     <div class="row">
         <div class="col-md-3">
-        <div class="card">
+        <div class="card" style=" background-color: rgb(233, 230, 230) ;">
             <div class="card-header">
                 <h5 class="Locations"> Available locations</h5>
             
             </div>
-            <ul class="list-group list-group-flush">
-                <li class="list-group-item">
+            <ul style=" background-color: rgb(233, 230, 230)" class="list-group list-group-flush">
+                <li class="list-group">
                     <a href="{% url 'index' %} ">All</a> 
                 </li>
 
                 {% for location in locations%}
-                <li class="list-group-item">
+                <li class="list-group" >
                     <a href="{% url 'index' %}?location={{ location.location}}"> 
                         {{location.location}}
                     </a> 
@@ -60,46 +70,39 @@
             </ul>
         </div>
         </div>
-        <div class="col-md-6">
-            <div class="input-group">
-            <form role="search" action="{% url 'search_results' %}">
+        <div class="col-md-1"></div>
         
-                <div class="form-group ">
-                    <input type="text" class="form-control" placeholder="Find by category" name="job">
-                    <button class="btn btn-dark" type="submit"> Search </button>
-                </div>
-                
-        
-                </form>
+        <div id="jobss" class="col-md-8">
+            <h4 class="heading text-center">We have found <span class="accent">{{ jobs.count }}</span> jobs</h4>
+            {% for job in jobs %}
+            <div class=" card col-md-12 mb-4" style="border-radius:15px; box-shadow: 10px 10px 5px rgba(3,3,3,0.5); background-color: rgb(233, 230, 230) ;">
+                <h4 class="job__title ms-3 mt-3"><a
+                        href="{% url 'job' job.id %}">{{ job.title }}</a></h4>
+                        <p class=" ms-3" id="jobdescription">{{job.category}}</p>
+                        <div class="col-6 col-md-3 col-lg-2 ml-auto  ms-3"><i class="fa fa-map-marker job__location"></i>
+                            {{ job.location }}
+                        </div>
+                        <div class=" ms-3 col-6 col-md-3 col-lg-3 ml-auto">
+                            <p>Job Type: {{ job.jobtype}}</p>
+                        </div>
+                        <div class=" ms-3 col-6 col-md-3 col-lg-3 ml-auto">
+                            <p>Posted {{ job.pub_date|timesince }} ago</p>
+                        </div>
+                        <div>
+                        <a href="{% url 'job' job.id %}" class="mb-3 ms-5 btn btn btn-dark  m-1 loc-list">View details ...</a>
+                        </div>
             </div>
+            {% endfor %}
         </div>
     </div>
 </div>
 
 <div class="container">
-<h3 class="heading text-center">We have found <span class="accent">{{ jobs.count }}</span> jobs</h3>
+
 
     <div class="job-listing  ">
         <div class="row">
-            {% for job in jobs %}
-            <div class=" card col-md-6 mb-4">
-                <h4 class="job__title"><a
-                        href="{% url 'job' job.id %}">{{ job.title }}</a></h4>
-                        <p id="jobdescription">{{job.description}}</p>
-                        <div class="col-6 col-md-3 col-lg-2 ml-auto"><i class="fa fa-map-marker job__location"></i>
-                            {{ job.location }}
-                        </div>
-                        <div class="col-6 col-md-3 col-lg-3 ml-auto">
-                            <p>Job Type: {{ job.jobtype}}</p>
-                        </div>
-                        <div class="col-6 col-md-3 col-lg-3 ml-auto">
-                            <p>Posted {{ job.pub_date|timesince }} ago</p>
-                        </div>
-                        <div>
-                        <a href="{% url 'job' job.id %}" class="btn btn-outline-dark btn-sm m-1 loc-list">Apply</a>
-                        </div>
-            </div>
-            {% endfor %}
+            
         </div>
     </div>
    
