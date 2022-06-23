@@ -1,11 +1,17 @@
 from django.db import models
 import datetime as dt
+from django.urls import reverse
+from django.contrib.auth.models import User
 
 # Create your models here.
 
-JOB_TYPE = ('Full Time','Part Time','Internship')
+JOB_TYPE = (('1','Full Time'),('2','Part Time'),('3','Internship'))
 
 class Location(models.Model):
+
+    def get_absolute_url(self):
+        return reverse('job-create')
+        
     location = models.CharField(max_length =30)
 
     def __str__(self):
@@ -41,33 +47,24 @@ class Category(models.Model):
     def get_category_id(cls,id):
         category = Category.object.get(pk = id)
         return category
-
-class Poster(models.Model):
-    first_name = models.CharField(max_length =30)
-    last_name = models.CharField(max_length =30)
-    email = models.EmailField()
-    phone_number = models.CharField(max_length = 10,blank =True)
-    
-    def __str__(self):
-        return self.first_name
-
-    def save_poster(self):
-        self.save()
-
-        
-    class Meta:
-        ordering = ['first_name']
-        
+       
 class Job(models.Model):
     title = models.CharField(max_length =50)
-    poster = models.ForeignKey(Poster, on_delete=models.CASCADE)
+    poster = models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
     location = models.ForeignKey(Location, on_delete=models.SET_NULL, null=True)
     jobtype = models.CharField(choices=JOB_TYPE,max_length=15)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
     pub_date = models.DateTimeField(auto_now_add=True, null=True) 
+
     siteurl = models.URLField(max_length=200, null=True, blank=True) 
 
+
+
+
+    def get_absolute_url(self):
+        return reverse('index')
+        
     def save_job(self):
         self.save()
         
